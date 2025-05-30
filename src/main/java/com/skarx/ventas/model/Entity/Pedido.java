@@ -3,10 +3,10 @@ package com.skarx.ventas.model.Entity;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.skarx.ventas.dto.ItemPedido;
 
 import jakarta.persistence.CollectionTable;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,7 +32,7 @@ public class Pedido {
     private LocalDate fecha;
     private String estado;  // "Aprobado", "Pendiente", "rechazado"
 
-    @ElementCollection
+    @JsonManagedReference
     @CollectionTable(name = "pedido_items", joinColumns = @JoinColumn(name = "pedido_id"))
     @Transient
     private List<ItemPedido> items;
