@@ -2,6 +2,7 @@ package com.skarx.ventas.model.Entity;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -25,9 +26,15 @@ public class Promociones {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 50)
     private String nombre;
+
+    @Column(length = 100)
     private String descripcion;
+
+    @Column(nullable = false)
     private Double descuento;
+
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
 
